@@ -51,3 +51,4 @@ patches:
 - path: auth_proxy_service_patch.yaml
 - path: mutating_webhook_patch.yaml
 - path: validating_webhook_patch.yaml
+- path: remove_default_namespace.yaml
