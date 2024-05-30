@@ -6,8 +6,10 @@ metadata:
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
-    pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch
-      == "test-branch"
+    pipelinesascode.tekton.dev/on-cel-expression: |
+      event == "push" 
+      && target_branch == "test-branch"
+      && ( !".tekton/**".pathChanged() || ".tekton/kueue-test-branch-push.yaml".pathChanged() )
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: kueue
@@ -22,7 +24,7 @@ spec:
   - name: git-url
     value: '{{source_url}}'
   - name: output-image
-    value: quay.io/redhat-user-workloads/rhoai-tenant/kueue/kueue-test-branch:{{revision}}
+    value: quay.io/kueue:{{revision}}
   - name: path-context
     value: .
   - name: revision
