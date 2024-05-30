@@ -24,7 +24,7 @@ spec:
   - name: git-url
     value: '{{source_url}}'
   - name: output-image
-    value: quay.io/kueue:{{revision}}
+    value: quay.io/modh/kueue:{{revision}}
   - name: path-context
     value: .
   - name: revision
