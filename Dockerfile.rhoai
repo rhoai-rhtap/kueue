@@ -19,7 +19,7 @@ RUN dnf upgrade -y && dnf install -y \
 # Install Go
 ENV PATH=/usr/local/go/bin:$PATH
 
-#COPY --from=golang /usr/lib/golang /usr/local/go
+#COPY --from=registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder:v1.22.2 /usr/lib/golang /usr/local/go
 
 
 # Copy the Go Modules manifests
