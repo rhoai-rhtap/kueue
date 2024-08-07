@@ -38,7 +38,7 @@ COPY . .
 
 #RUN make build GO_BUILD_ENV='CGO_ENABLED=1 GOOS=linux GOARCH=amd64'
 
-RUN make build GO_BUILD_ENV='CGO_ENABLED=1 GOOS=linux GOARCH=amd64' -mod=vendor
+RUN make build GO_BUILD_ENV='CGO_ENABLED=1 GOOS=linux GOARCH=amd64' -mod=mod
 
 FROM registry.access.redhat.com/ubi9/ubi:latest
 
