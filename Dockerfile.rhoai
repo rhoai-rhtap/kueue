@@ -1,11 +1,7 @@
-# Build the manager binary
-#FROM registry.access.redhat.com/ubi9/go-toolset:1.21 as builder
-
+# Start of Go versioning workaround for lack of go-toolset for version 1.22
 FROM registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder:v1.22.2 AS golang
 
-WORKDIR /workspace
-
-RUN git config --global --add safe.directory /workspace
+FROM registry.access.redhat.com/ubi9/ubi:latest AS builder
 
 ARG GOLANG_VERSION=1.22.2
 
@@ -19,8 +15,9 @@ RUN dnf upgrade -y && dnf install -y \
 # Install Go
 ENV PATH=/usr/local/go/bin:$PATH
 
-#COPY --from=registry-proxy.engineering.redhat.com/rh-osbs/openshift-golang-builder:v1.22.2 /usr/lib/golang /usr/local/go
+COPY --from=golang /usr/lib/golang /usr/local/go
 
+WORKDIR /workspace
 
 # Copy the Go Modules manifests
 COPY go.mod go.mod
@@ -29,19 +26,17 @@ COPY go.sum go.sum
 # and so that source changes don't invalidate our downloaded layer
 RUN go mod download
 
-
 # Copy the go source
 COPY . .
 
 # Build
 RUN make build GO_BUILD_ENV='CGO_ENABLED=1 GOOS=linux'
 
-
 FROM registry.access.redhat.com/ubi9/ubi:latest
 
 WORKDIR /
 USER root
-COPY --from=golang /workspace/bin/manager /manager
+COPY --from=builder /workspace/bin/manager /manager
 USER 65532:65532
 
 ENTRYPOINT ["/manager"]
