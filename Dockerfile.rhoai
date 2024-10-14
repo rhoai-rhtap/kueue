@@ -41,3 +41,12 @@ COPY --from=builder /workspace/bin/manager /manager
 USER 65532:65532
 
 ENTRYPOINT ["/manager"]
+
+# Define build arguments
+ARG URL
+ARG VCS_REF
+ARG RELEASE
+
+LABEL url="$URL" \
+      vcs-ref="$VCS_REF" \
+      release="$RELEASE"
