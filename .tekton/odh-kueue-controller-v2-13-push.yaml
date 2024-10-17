@@ -239,6 +239,8 @@ spec:
           - version=v2.13.0
           - git.url=$(params.git-url)
           - git.commit=$(params.revision)
+          - url=$(params.git-url)
+          - release=$(tasks.clone-repository.results.commit-timestamp)  
       runAfter:
       - prefetch-dependencies
       taskRef:
