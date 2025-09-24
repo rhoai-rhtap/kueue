@@ -8,9 +8,16 @@
     {
       "enabled": true,
       "automerge": false,
-      "baseBranches": ["rhoai-2.13"],
-      "matchManagers": ["tekton", "dockerfile"],
-      "updateTypes": ["digest"]
+      "baseBranchPatterns": [
+        "rhoai-2.13"
+      ],
+      "matchManagers": [
+        "tekton",
+        "dockerfile"
+      ],
+      "matchUpdateTypes": [
+        "digest"
+      ]
     },
     {
       "matchUpdateTypes": [
@@ -18,9 +25,12 @@
         "bump",
         "patch"
       ],
-      "matchManagers": ["tekton", "dockerfile"],
+      "matchManagers": [
+        "tekton",
+        "dockerfile"
+      ],
       "enabled": false
     }
   ],
- "prHourlyLimit": 0
+  "prHourlyLimit": 0
 }
