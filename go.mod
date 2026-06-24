@@ -1,6 +1,6 @@
 module sigs.k8s.io/kueue
 
-go 1.22.2
+go 1.23
 
 require (
 	github.com/fsnotify/fsnotify v1.7.0
@@ -140,7 +140,7 @@ require (
 	k8s.io/gengo/v2 v2.0.0-20240228010128-51d4e06bde70 // indirect
 	k8s.io/kms v0.29.5 // indirect
 	sigs.k8s.io/apiserver-network-proxy/konnectivity-client v0.28.0 // indirect
-	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
+	sigs.k8s.io/json v0.0.0-20250730193827-2d320260d730 // indirect
 	sigs.k8s.io/kustomize/api v0.13.5-0.20230601165947-6ce0bf390ce3 // indirect
 	sigs.k8s.io/kustomize/kyaml v0.14.3-0.20230601165947-6ce0bf390ce3 // indirect
 )
