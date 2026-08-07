@@ -15,7 +15,7 @@ require (
 	github.com/prometheus/client_model v0.6.1
 	github.com/ray-project/kuberay/ray-operator v1.1.1
 	github.com/spf13/cobra v1.8.0
-	go.uber.org/zap v1.27.0
+	go.uber.org/zap v1.28.0
 	k8s.io/api v0.30.1
 	k8s.io/apimachinery v0.30.1
 	k8s.io/apiserver v0.29.5
