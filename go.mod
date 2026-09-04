@@ -1,18 +1,18 @@
 module sigs.k8s.io/kueue
 
-go 1.22.2
+go 1.23
 
 require (
 	github.com/fsnotify/fsnotify v1.7.0
 	github.com/go-logr/logr v1.4.2
-	github.com/google/go-cmp v0.6.0
+	github.com/google/go-cmp v0.7.0
 	github.com/kubeflow/mpi-operator v0.5.0
 	github.com/kubeflow/training-operator v1.7.0
 	github.com/onsi/ginkgo/v2 v2.19.0
 	github.com/onsi/gomega v1.33.1
 	github.com/open-policy-agent/cert-controller v0.10.1
 	github.com/prometheus/client_golang v1.18.0
-	github.com/prometheus/client_model v0.6.1
+	github.com/prometheus/client_model v0.6.3
 	github.com/ray-project/kuberay/ray-operator v1.1.1
 	github.com/spf13/cobra v1.8.0
 	go.uber.org/zap v1.27.0
@@ -130,7 +130,7 @@ require (
 	google.golang.org/genproto/googleapis/api v0.0.0-20230822172742-b8732ec3820d // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230822172742-b8732ec3820d // indirect
 	google.golang.org/grpc v1.59.0 // indirect
-	google.golang.org/protobuf v1.33.0 // indirect
+	google.golang.org/protobuf v1.36.12 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
